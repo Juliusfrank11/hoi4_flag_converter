@@ -44,7 +44,7 @@ def make_resized_images(flag_dic, large_dic, medium_dic, small_dic, in_fmt, out_
     for filename in os.listdir(large_dic):
         if filename.endswith(in_fmt):
             print('Moving ' + filename + ' to ' + medium_dic)
-            Image.open(large_dic + '\\' +  filename).save(filename.replace(in_fmt,out_fmt))
+            Image.open(large_dic + '\\' +  filename).save(filename)
     for filename in os.listdir(medium_dic):
         print('Resizing ' + filename + ' to medium size')
         Image.open(filename).resize(medium).save(filename)
@@ -80,9 +80,9 @@ def main():
             make_resized_images(flag_dic, large_dic, medium_dic, small_dic, in_fmt, out_fmt)
 
 def main_for_people_who_code():
-    large_done = True
+    large_done = False
     flag_dic = 'D:\Documents\hoi4 flags'
-    large_dic = 'D:\Documents\hoi4 flags'
+    large_dic = 'D:\Documents\hoi4 flags\standard'
     medium_dic = 'D:\Documents\hoi4 flags\medium'
     small_dic = 'D:\Documents\hoi4 flags\small'
     if large_done:
