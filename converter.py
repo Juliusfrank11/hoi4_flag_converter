@@ -66,7 +66,7 @@ def main():
         main_for_people_who_code()
     else:
         print('It is really important that you follow instructions EXACTLY or it will mess up the code.\nYou should have already named all your flags in the correct format (for example AFG_communism, JAP_fascism, ZIM_democractic).\nAll your flags should be in \".tga\", \",png\", \".ppm\", \".jpeg\", \".tiff\", \".bmp\", or  \".jpg\" formats.\nThe dictortory should ONLY contain the flag files')
-        large_done = input('Have you already converted the flags to 82x52 resolution? Answer \"Y\" for yes or \"N\" for no.\n')
+        large_done = input('Have you already converted the flags to 82x52 resolution .tga files? Answer \"Y\" for yes or \"N\" for no.\n')
         if large_done.lower().startswith('y'):
             flag_dic = input('Enter the directory the flag files.\n')
             medium_dic = input('Enter the directory you want the medium size flags to be placed in\n')
