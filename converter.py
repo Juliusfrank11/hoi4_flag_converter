@@ -1,7 +1,7 @@
 from PIL import Image
 import os
 
-in_fmt = ('.tga',',png','.ppm','.jpeg','.tiff','.bmp','.jpg')
+in_fmt = ('.tga','.png','.ppm','.jpeg','.tiff','.bmp','.jpg')
 out_fmt = '.tga'
 def make_resized_images_large_done(flag_dic, medium_dic, small_dic, in_fmt, out_fmt):
     medium = (41, 26)
