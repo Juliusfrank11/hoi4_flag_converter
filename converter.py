@@ -11,19 +11,19 @@ def make_resized_images_large_done(flag_dic, medium_dic, small_dic, in_fmt, out_
     for filename in os.listdir(flag_dic):
         if filename.endswith(in_fmt):
             print('Moving ' + filename + ' to ' + medium_dic)
-            Image.open(flag_dic + '\\' +  filename).save(filename[:filename.index('.')] + out_fmt)
+            Image.open(flag_dic + '\\' +  filename).save(filename[:filename.index('.')] + out_fmt, compression = None )
     for filename in os.listdir(medium_dic):
         print('Resizing ' + filename + ' to medium size')
-        Image.open(filename).resize(medium).save(filename)
+        Image.open(filename).resize(medium).save(filename,compression = None )
     print('Converting small sized flags...')
     os.chdir(small_dic)
     for filename in os.listdir(medium_dic):
         if filename.endswith(out_fmt):
             print('Moving ' + filename + ' to ' + small_dic)
-            Image.open(medium_dic + '\\' +  filename).save(filename)
+            Image.open(medium_dic + '\\' +  filename).save(filename,compression = None)
     for filename in os.listdir(small_dic):
         print('Resizing ' + filename + ' to small size')
-        Image.open(filename).resize(small).save(filename)
+        Image.open(filename).resize(small).save(filename,compression = None)
     done = input('Done! Press ENTER to exit.')
 
 def make_resized_images(flag_dic, large_dic, medium_dic, small_dic, in_fmt, out_fmt):
@@ -35,28 +35,28 @@ def make_resized_images(flag_dic, large_dic, medium_dic, small_dic, in_fmt, out_
     for filename in os.listdir(flag_dic):
         if filename.endswith(in_fmt):
             print('Moving ' + filename + ' to ' + large_dic)
-            Image.open(flag_dic + '\\' +  filename).save(filename[:filename.index('.')] + out_fmt)
+            Image.open(flag_dic + '\\' +  filename).save(filename[:filename.index('.')] + out_fmt,compression = None)
     for filename in os.listdir(large_dic):
         print('Resizing ' + filename + ' to standard size')
-        Image.open(filename).resize(large).save(filename)
+        Image.open(filename).resize(large).save(filename,compression = None)
     print('Converting medium sized flags...')
     os.chdir(medium_dic)
     for filename in os.listdir(large_dic):
         if filename.endswith(in_fmt):
             print('Moving ' + filename + ' to ' + medium_dic)
-            Image.open(large_dic + '\\' +  filename).save(filename)
+            Image.open(large_dic + '\\' +  filename).save(filename,compression = None)
     for filename in os.listdir(medium_dic):
         print('Resizing ' + filename + ' to medium size')
-        Image.open(filename).resize(medium).save(filename)
+        Image.open(filename).resize(medium).save(filename,compression = None)
     print('Converting small sized flags...')
     os.chdir(small_dic)
     for filename in os.listdir(medium_dic):
         if filename.endswith(out_fmt):
             print('Moving ' + filename + ' to ' + small_dic)
-            Image.open(medium_dic + '\\' +  filename).save(filename)
+            Image.open(medium_dic + '\\' +  filename).save(filename,compression = None)
     for filename in os.listdir(small_dic):
         print('Resizing ' + filename + ' to small size')
-        Image.open(filename).resize(small).save(filename)
+        Image.open(filename).resize(small).save(filename,compression = None)
     done = input('Done! Press ENTER to exit.')
     
 
