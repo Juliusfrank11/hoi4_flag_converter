@@ -37,8 +37,11 @@ def make_resized_images(flag_dic, large_dic, medium_dic, small_dic, in_fmt, out_
             print('Moving ' + filename + ' to ' + large_dic)
             Image.open(flag_dic + '\\' +  filename).save(filename[:filename.index('.')] + out_fmt,compression = None)
     for filename in os.listdir(large_dic):
-        print('Resizing ' + filename + ' to standard size')
-        Image.open(filename).resize(large).save(filename,compression = None)
+        if os.path.isdir(filename):
+            continue
+        else:
+            print('Resizing ' + filename + ' to standard size')
+            Image.open(filename).resize(large).save(filename,compression = None)
     print('Converting medium sized flags...')
     os.chdir(medium_dic)
     for filename in os.listdir(large_dic):
@@ -58,7 +61,7 @@ def make_resized_images(flag_dic, large_dic, medium_dic, small_dic, in_fmt, out_
         print('Resizing ' + filename + ' to small size')
         Image.open(filename).resize(small).save(filename,compression = None)
     done = input('Done! Press ENTER to exit.')
-    
+
 
 def main():
     can_code = input('Have you edited the parameters in the .py file already? Answer \"Y\" for yes or \"N\" for no\n')
@@ -89,5 +92,5 @@ def main_for_people_who_code():
         make_resized_images_large_done(flag_dic, medium_dic, small_dic, in_fmt, out_fmt)
     else:
         make_resized_images(flag_dic, large_dic, medium_dic, small_dic, in_fmt, out_fmt)
-        
+
 main()
